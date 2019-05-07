@@ -39,13 +39,14 @@
         />
 
     <LinearLayout
+        android:id="@+id/lv_double_text"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <TextView
             android:background="@drawable/bg_custom_select_left_bottom"
-            android:id="@+id/cancel"
+            android:id="@+id/sure"
             android:layout_width="0dp"
             android:layout_height="44dp"
             android:layout_weight="1.0"
@@ -65,7 +66,7 @@
 
         <TextView
 
-            android:id="@+id/sure"
+            android:id="@+id/cancle"
             android:text="取消"
             android:layout_width="0dp"
             android:layout_height="44dp"
@@ -78,4 +79,15 @@
             />
 
     </LinearLayout>
+    <TextView
+        android:id="@+id/sincle"
+        android:text="确定"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:gravity="center"
+        android:clickable="true"
+        android:background="@drawable/bg_custom_select_single_bottom"
+        android:textColor="@drawable/bg_costom_left_green"
+        android:textSize="14dp"
+        />
 </LinearLayout>
