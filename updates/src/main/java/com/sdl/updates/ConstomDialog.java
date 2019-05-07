@@ -1,12 +1,14 @@
 package com.sdl.updates;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Display;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -40,10 +42,38 @@ public class ConstomDialog extends Dialog {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        WindowManager wm = (WindowManager) buider.context.getSystemService(Context.WINDOW_SERVICE);
+        Display display = wm.getDefaultDisplay();
+        int width = 0;
+        int height = 0;
+        if(buider.width!=0){
+            width=buider.width;
+        }
+        if(buider.height!=0){
+            height=buider.height;
+        }
+        if(buider.isFullScreen){
+            width = display.getWidth();
+            height = display.getHeight();
+        }
+        ViewGroup.LayoutParams layoutParams = new  ViewGroup.LayoutParams(width, height);
         if(buider.viewId==-1){
-            setContentView(default_view);
+                LayoutInflater inflater = LayoutInflater.from(buider.context);
+                View viewDialog = inflater.inflate(default_view, null);
+                if(width==0&height==0){
+                    setContentView(viewDialog);
+                }else {
+                    setContentView(viewDialog,layoutParams);
+                }
         }else {
-            setContentView(buider.viewId);
+
+                LayoutInflater inflater = LayoutInflater.from(buider.context);
+                View viewDialog = inflater.inflate(buider.viewId, null);
+            if(width==0&height==0){
+                setContentView(viewDialog);
+            }else {
+                setContentView(viewDialog,layoutParams);
+            }
         }
         setCancelable(touchable);
         initview();
@@ -81,6 +111,13 @@ public class ConstomDialog extends Dialog {
                cancel.setOnClickListener(buider.cancleClick);
                sincle.setOnClickListener(buider.singleClick);
            }else {
+               if(buider.ids!=null&&buider.allClick!=null){
+                   for (int i = 0; i < buider.ids.length; i++) {
+                      View view = findViewById(buider.ids[i]);
+                       if(view!=null)
+                           view.setOnClickListener(buider.allClick);
+                   }
+               }
                          //自定义界面
            }
     }
@@ -89,8 +126,11 @@ public class ConstomDialog extends Dialog {
         private Context context;
         private boolean touchable =false;
         private boolean singletext = false;
+        private boolean isFullScreen = false;
         private int viewId=-1;
         private int resStyle=-1;
+        private int width=0;
+        private int height=0;
         private String title="温馨提示";
         private String message="";
         private String sureText="确定";
@@ -99,11 +139,30 @@ public class ConstomDialog extends Dialog {
         private View.OnClickListener sureClick;
         private View.OnClickListener cancleClick;
         private View.OnClickListener singleClick;
+        private int[] ids;
+        private View.OnClickListener allClick;
         public Buider(Context context) {
             this.context = context;
         }
         public Buider setTouchAble(boolean touchable){
             this.touchable =touchable;
+            return this;
+        }
+        public Buider setSpecialIdsAndOnclick(int[] ids,View.OnClickListener onClickListener){
+            this.ids =ids;
+            this.allClick =onClickListener;
+            return this;
+        }
+        public Buider setwidth(int touchable){
+            this.width =touchable;
+            return this;
+        }
+        public Buider setheight(int touchable){
+            this.height =touchable;
+            return this;
+        }
+        public Buider setFullScreen(boolean fullScreen){
+            this.isFullScreen =fullScreen;
             return this;
         }
         public Buider setSingle(boolean touchable){
