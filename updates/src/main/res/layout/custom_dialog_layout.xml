@@ -44,13 +44,15 @@
         android:orientation="horizontal">
 
         <TextView
+            android:background="@drawable/bg_custom_select_left_bottom"
             android:id="@+id/cancel"
             android:layout_width="0dp"
             android:layout_height="44dp"
             android:layout_weight="1.0"
             android:gravity="center"
             android:text="确定"
-            android:textColor="#008B00"
+            android:clickable="true"
+            android:textColor="@drawable/bg_costom_left_green"
             android:textSize="14dp"
             />
 
@@ -62,13 +64,16 @@
             />
 
         <TextView
+
             android:id="@+id/sure"
             android:text="取消"
             android:layout_width="0dp"
             android:layout_height="44dp"
             android:layout_weight="1.0"
             android:gravity="center"
-            android:textColor="#ff0000"
+            android:clickable="true"
+            android:background="@drawable/bg_custom_select_right_bottom"
+            android:textColor="@drawable/bg_costom_right_red"
             android:textSize="14dp"
             />
 
