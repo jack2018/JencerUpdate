@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.he).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //
 //                ConstomDialog.Buider buider = new ConstomDialog.Buider(MainActivity.this);
 //                constomDialog = buider
 //                        .setMessage("内容hasndasdh")
