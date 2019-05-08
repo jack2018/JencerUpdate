@@ -76,6 +76,8 @@ public class ConstomDialog extends Dialog {
             }
         }
         setCancelable(buider.touchable);
+        if(buider.isshowAnimal)
+        getWindow().getAttributes().windowAnimations =buider.animalId;
         initview();
     }
     private void initview(){
@@ -127,6 +129,8 @@ public class ConstomDialog extends Dialog {
         private boolean touchable =false;
         private boolean singletext = false;
         private boolean isFullScreen = false;
+        private boolean isshowAnimal=true;
+        private int animalId=R.style.pop_animation;
         private int viewId=-1;
         private int resStyle=-1;
         private int width=0;
@@ -148,6 +152,15 @@ public class ConstomDialog extends Dialog {
             this.touchable =touchable;
             return this;
         }
+        public Buider setshowAnimal(boolean isshowAnimal){
+            this.isshowAnimal =isshowAnimal;
+            return this;
+        }
+        public Buider setAnimalId(int animalId){
+            this.animalId =animalId;
+            return this;
+        }
+
         public Buider setSpecialIdsAndOnclick(int[] ids,View.OnClickListener onClickListener){
             this.ids =ids;
             this.allClick =onClickListener;

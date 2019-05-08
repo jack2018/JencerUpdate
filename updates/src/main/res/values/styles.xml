@@ -14,5 +14,8 @@
         <item name="android:backgroundDimEnabled">true</item>
         <!--模糊-->
     </style>
-
+    <style name="pop_animation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/pop_in</item>
+        <item name="android:windowExitAnimation">@anim/pop_gone</item>
+    </style>
 </resources>

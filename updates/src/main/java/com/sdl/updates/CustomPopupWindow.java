@@ -13,7 +13,7 @@ import android.view.WindowManager;
 import android.widget.PopupWindow;
 
 public class CustomPopupWindow extends PopupWindow {
-Context context;
+    Context context;
     Builder builder;
     private CustomPopupWindow(Builder builder) {
         super(builder.context);
@@ -44,7 +44,7 @@ Context context;
         private boolean isTouchable = true;
         private View view;
         private int animStyle;
-
+//        private boolean isshadow=false;
         public Builder(Context context) {
             this.context = context;
         }
@@ -53,7 +53,10 @@ Context context;
             view = LayoutInflater.from(context).inflate(resView, null);
             return this;
         }
-
+//        public Builder view(boolean isshadows) {
+//            isshadow =isshadows;
+//            return this;
+//        }
         public Builder view(View resVew){
             view = resVew;
             return this;
@@ -232,5 +235,6 @@ Context context;
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dipValue * scale + 0.5f);
     }
+
 
 }
