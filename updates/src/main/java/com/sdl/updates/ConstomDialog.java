@@ -75,7 +75,7 @@ public class ConstomDialog extends Dialog {
                 setContentView(viewDialog,layoutParams);
             }
         }
-        setCancelable(touchable);
+        setCancelable(buider.touchable);
         initview();
     }
     private void initview(){

@@ -25,14 +25,14 @@ android {
         userOrg = 'jack2016'//登录的用户名
         groupId = 'jenc.sdl.com.jencerupdate'//识别名（一般是libraryModel的包名称）
         artifactId = 'jencerupdate'//包名称（Jcenter目录下的包名称）
-        publishVersion = '1.0.3'//版本号码
+        publishVersion = '1.0.4'//版本号码
         desc = 'jencerupdateh上传'//描述
         website = "https://github.com/novoda/${rootProject.name}"//github地址
     }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:28.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'

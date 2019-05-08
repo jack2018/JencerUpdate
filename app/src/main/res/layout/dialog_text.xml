@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@android:color/white"
-    android:orientation="vertical" android:layout_width="2000dp"
+    android:background="@android:color/holo_blue_bright"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
 <TextView
@@ -10,5 +10,26 @@
     android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" />
+    <TextView
+        android:layout_below="@+id/tv_num"
+        android:text="52522"
+        android:id="@+id/tv_num1"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_below="@+id/tv_num1"
+        android:text="52522"
+        android:id="@+id/tv_num2"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_below="@+id/tv_num2"
+        android:text="52522"
+        android:id="@+id/tv_num3"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </RelativeLayout>
