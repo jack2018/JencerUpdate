@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<android.support.v4.view.ViewPager
+    android:layout_width="match_parent"
+    android:id="@+id/vp"
+    android:layout_height="300dp"></android.support.v4.view.ViewPager>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="4"
+        android:layout_width="match_parent"
+        android:background="@android:color/holo_blue_dark"
+        android:layout_height="20dp">
+        <View
+            android:id="@+id/view_ind"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="@android:color/darker_gray"
+            android:layout_height="match_parent"></View>
+    </LinearLayout>
+    <Button
+        android:layout_width="100dp"
+        android:id="@+id/tv_jpg"
+        android:text="调到"
+        android:layout_height="20dp" />
+</LinearLayout>
