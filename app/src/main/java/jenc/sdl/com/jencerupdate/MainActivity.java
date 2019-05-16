@@ -5,7 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 
+import com.blankj.utilcode.util.ScreenUtils;
+import com.gyf.immersionbar.ImmersionBar;
 import com.sdl.updates.ConstomDialog;
 import com.sdl.updates.CustomPopupWindow;
 
@@ -14,7 +17,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        WindowManager.LayoutParams localLayoutParams = getWindow().getAttributes();
+//        localLayoutParams.flags = (WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS );
         setContentView(R.layout.activity_main);
+
+        ImmersionBar.with(this)
+                .transparentStatusBar()
+                .statusBarColor(R.color.colorTransgray)
+
+//                .autoDarkModeEnable(false)
+//                .flymeOSStatusBarFontColor(R.color.colorPrimary)
+//                .statusBarDarkFont(true, 1.0f)
+//                .statusBarAlpha(0.5f)
+                .init();
+
         findViewById(R.id.he).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -23,16 +39,16 @@ public class MainActivity extends AppCompatActivity {
                 constomDialog = buider
                         .setMessage("内容hasndasdh")
                         .setFullScreen(false)
-                        .setTouchAble(false)
-//                        .setViewId(R.layout.dialog_text)
+                        .setTouchAble(true)
+                        .setViewId(R.layout.se)
                         .setSpecialIdsAndOnclick(new int[]{R.id.tv_num}, new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 constomDialog.dismiss();
                             }
                         })
-//                        .setwidth(800)
-//                        .setheight(200)
+                        .setwidth(ScreenUtils.getScreenWidth())
+                        .setheight(ScreenUtils.getScreenHeight())
                         .setTitle("标题")
                         .setAnimalId(R.style.pop_animation1)
                         .setSingle(true)
