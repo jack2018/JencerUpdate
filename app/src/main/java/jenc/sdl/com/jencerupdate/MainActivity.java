@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                         .setTitle("标题")
                         .setAnimalId(R.style.pop_animation1)
                         .setSingle(true)
-                        .setshowAnimal(true)
+                        .setshowAnimal(false)
                         .setSureText("取消",null)
                         .setCancleText("确定",null)
                         .setSingleText("确定",null)
