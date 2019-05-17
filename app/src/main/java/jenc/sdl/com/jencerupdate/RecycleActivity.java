@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -17,8 +18,9 @@ public class RecycleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycle);
       RecyclerView recyclerView = findViewById(R.id.re_te);
-      recyclerView.setLayoutManager(new MyLayoutManager());
-//        recyclerView.setLayoutManager(new LinearLayoutManager(RecycleActivity.this));
+//      recyclerView.setLayoutManager(new MyLayoutManager());
+//        recyclerView.setLayoutManager(new GridLayoutManager(RecycleActivity.this,2));
+        recyclerView.setLayoutManager(new LinearLayoutManager(RecycleActivity.this));
       recyclerView.setAdapter(new rehold());
     }
     class rehold extends RecyclerView.Adapter<MyHold>{

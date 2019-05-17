@@ -11,7 +11,7 @@ import android.view.ViewGroup;
  * Created by Administrator on 2018/8/28 0028.
  */
 
-public class StudyLayoutManager extends LayoutManager{
+public class MyLayoutManager2 extends LayoutManager{
 
     //    所有数据高度和
     private int totalHeight = 0;
