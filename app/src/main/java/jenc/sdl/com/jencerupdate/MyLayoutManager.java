@@ -112,6 +112,7 @@ public class MyLayoutManager extends RecyclerView.LayoutManager {
         //重新显示需要出现在屏幕的子View
         for (int i = 0; i < getItemCount(); i++) {
             //判断ItemView的位置和当前显示区域是否重合
+            Log.e("ccccc","displayRect："+displayRect.top+"&&&&&"+allItemRects.get(i).top+"\n"+displayRect.bottom+"&&&&&"+allItemRects.get(i).bottom);
             if (Rect.intersects(displayRect, allItemRects.get(i))) {
                 //获得Recycler中缓存的View
                 View itemView = recycler.getViewForPosition(i);

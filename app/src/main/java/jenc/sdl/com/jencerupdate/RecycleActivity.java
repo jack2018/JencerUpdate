@@ -1,5 +1,6 @@
 package jenc.sdl.com.jencerupdate;
 
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -18,9 +19,10 @@ public class RecycleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycle);
       RecyclerView recyclerView = findViewById(R.id.re_te);
-//      recyclerView.setLayoutManager(new MyLayoutManager());
+      recyclerView.addItemDecoration(new ite());
+      recyclerView.setLayoutManager(new MyLayoutManager3());
 //        recyclerView.setLayoutManager(new GridLayoutManager(RecycleActivity.this,2));
-        recyclerView.setLayoutManager(new LinearLayoutManager(RecycleActivity.this));
+//        recyclerView.setLayoutManager(new LinearLayoutManager(RecycleActivity.this));
       recyclerView.setAdapter(new rehold());
     }
     class rehold extends RecyclerView.Adapter<MyHold>{
@@ -45,6 +47,12 @@ public class RecycleActivity extends AppCompatActivity {
         public MyHold(@NonNull View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.tv_ss);
+        }
+    }
+    class ite extends RecyclerView.ItemDecoration{
+        @Override
+        public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+            super.getItemOffsets(outRect, view, parent, state);
         }
     }
 }
